@@ -42,11 +42,14 @@ form input {
   gap: 20px;
 }
 .country-cont img {
-  height: 213px;
+  height: 200px;
   width: 320px;
 }
 .country-cont h2 {
-  max-width: 220px;
+  max-width: 200px;
+}
+.country-cont p {
+  max-width: 200px;
 }
 
 .country {

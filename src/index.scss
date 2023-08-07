@@ -40,12 +40,15 @@ form {
   flex-wrap: wrap;
   gap: 20px;
   img {
-    height: 213px;
+    height: 200px;
     width: 320px;
     //border-radius: 10px 10px 0 0;
   }
   h2 {
-    max-width: 220px;
+    max-width: 200px;
+  }
+  p {
+    max-width: 200px;
   }
 }
 .country {
