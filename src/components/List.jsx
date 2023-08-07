@@ -9,13 +9,13 @@ const List = ({ countries }) => {
           return (
             <div key={ccn3} className="country">
               <div className="flag">
-                <img src={png} alt="" srcset="" />
+                <img src={png} />
               </div>
               <div className="details">
                 <h2>{common}</h2>
-                <p>Population:{population}</p>
-                <p>Region:{region}</p>
-                <p>Capital:{capital}</p>
+                <p>Population: {population.toLocaleString("en-EN")}</p>
+                <p>Region: {region}</p>
+                <p>Capital: {capital}</p>
               </div>
             </div>
           );
