@@ -21,13 +21,13 @@ code {
   background-color: hsl(0, 0%, 98%);
 }
 
-.search-container {
+form {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
 }
-.search-container input {
+form input {
   height: 40px;
   width: 300px;
   border: 0;
@@ -57,4 +57,8 @@ code {
 }
 .country .details {
   padding: 0 30px;
+}
+
+#filter-region {
+  width: 150px;
 }/*# sourceMappingURL=index.css.map */
