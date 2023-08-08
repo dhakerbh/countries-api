@@ -30,7 +30,7 @@ const Search = () => {
       setCountries(jsonData);
       settoShowCountries(jsonData);
     } catch (err) {
-      console.error(err.message);
+      console.log(err.message);
     }
   };
   useEffect(() => {
@@ -45,7 +45,6 @@ const Search = () => {
     const region_index =
       document.getElementById("filter-region").selectedIndex - 1;
     settoShowCountries(countries);
-    //console.log(regions[region_index - 1].name);
     try {
       if (region_index > -1) {
         const region_name = regions[region_index].name.toUpperCase();
@@ -54,9 +53,7 @@ const Search = () => {
             country.region.toUpperCase().includes(region_name)
           )
         );
-        console.log(`to show Countries Supposed region ${region_name}`);
       }
-      //console.log(toShowCountries);
     } catch (err) {
       console.log(err.message);
       settoShowCountries(countries);
