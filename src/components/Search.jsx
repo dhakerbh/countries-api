@@ -22,7 +22,6 @@ const Search = () => {
   const [countries, setCountries] = useState([]);
   const [toShowCountries, settoShowCountries] = useState([]);
   const [toShowCountries2, settoShowCountries2] = useState([]);
-
   //Get The Countries List from API
   const getCountries = async () => {
     try {
@@ -39,44 +38,58 @@ const Search = () => {
   }, []);
 
   //Searching For Countries
+  /*
   const filterR = () => {
     const s = document.getElementById("search-input").value.toUpperCase();
 
     const region_index =
       document.getElementById("filter-region").selectedIndex - 1;
+    settoShowCountries(countries);
     //console.log(regions[region_index - 1].name);
     try {
-      settoShowCountries2(
-        countries.filter((country) =>
-          country.region.includes(regions[region_index].name)
-        )
-      );
-      console.log(regions[region_index].name);
+      if (region_index != -1) {
+        const region_name = regions[region_index].name.toUpperCase;
+        settoShowCountries(
+          countries.filter((country) =>
+            country.region.toUpperCase().includes(region_name)
+          )
+        );
+        console.log(
+          `to show Countries Supposed region ${regions[region_index].name}`
+        );
+      }
+      //console.log(toShowCountries);
     } catch (err) {
-      settoShowCountries2(countries);
+      console.log(err.message);
+      settoShowCountries(countries);
     }
     try {
-      settoShowCountries(
-        toShowCountries2.filter((country) =>
-          country.name.common.toUpperCase().includes(s.toUpperCase())
-        )
-      );
+      if (s.length > 0)
+        settoShowCountries(
+          toShowCountries.filter((country) =>
+            country.name.common.toUpperCase().includes(s)
+          )
+        );
     } catch (err) {
       console.log(err.message);
     }
   };
+  useEffect(() => {
+    filterR();
+  }, []);*/
+
   return (
     <div className="search-container">
       <form>
         <input
-          onChange={() => filterR()}
+          //onChange={() => filterR()}
           placeholder="Search for a country..."
           type="text"
           id="search-input"
         />
         <div>
           <select
-            onChange={() => filterR()}
+            //onChange={() => filterR()}
             name="region-list"
             id="filter-region"
           >
@@ -91,7 +104,8 @@ const Search = () => {
           </select>
         </div>
       </form>
-      <List countries={toShowCountries} />
+      <h1>{}</h1>
+      <List countries={countries} />
     </div>
   );
 };
