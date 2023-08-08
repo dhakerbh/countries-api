@@ -38,7 +38,7 @@ const Search = () => {
   }, []);
 
   //Searching For Countries
-  /*
+
   const filterR = () => {
     const s = document.getElementById("search-input").value.toUpperCase();
 
@@ -47,16 +47,14 @@ const Search = () => {
     settoShowCountries(countries);
     //console.log(regions[region_index - 1].name);
     try {
-      if (region_index != -1) {
-        const region_name = regions[region_index].name.toUpperCase;
+      if (region_index > -1) {
+        const region_name = regions[region_index].name.toUpperCase();
         settoShowCountries(
           countries.filter((country) =>
             country.region.toUpperCase().includes(region_name)
           )
         );
-        console.log(
-          `to show Countries Supposed region ${regions[region_index].name}`
-        );
+        console.log(`to show Countries Supposed region ${region_name}`);
       }
       //console.log(toShowCountries);
     } catch (err) {
@@ -65,31 +63,31 @@ const Search = () => {
     }
     try {
       if (s.length > 0)
-        settoShowCountries(
-          toShowCountries.filter((country) =>
+        settoShowCountries((tsc) => {
+          return tsc.filter((country) =>
             country.name.common.toUpperCase().includes(s)
-          )
-        );
+          );
+        });
     } catch (err) {
       console.log(err.message);
     }
   };
   useEffect(() => {
     filterR();
-  }, []);*/
-
+  }, []);
+  const region_filter = () => {};
   return (
     <div className="search-container">
       <form>
         <input
-          //onChange={() => filterR()}
+          onChange={() => filterR()}
           placeholder="Search for a country..."
           type="text"
           id="search-input"
         />
         <div>
           <select
-            //onChange={() => filterR()}
+            onChange={() => filterR()}
             name="region-list"
             id="filter-region"
           >
@@ -105,7 +103,7 @@ const Search = () => {
         </div>
       </form>
       <h1>{}</h1>
-      <List countries={countries} />
+      <List countries={toShowCountries} />
     </div>
   );
 };
